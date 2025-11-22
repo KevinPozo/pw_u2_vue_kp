@@ -1,20 +1,17 @@
 <template>
-  <div>
-    <Contador />
-    <Contador />
-  </div>
+    <div>
+        <Contador />
+        <Contador />
+    </div>
 </template>
 
 <script>
 import Contador from "./components/Contador.vue";
-
 export default {
-  components: {
+components: {
     Contador,
-  },
+},
 };
 </script>
 
-<style>
-/* Tu CSS aquí */
-</style>
+<style></style>
