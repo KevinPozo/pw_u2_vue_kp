@@ -1,16 +1,16 @@
 <template>
-    <div>
-        <Contador />
-        <Contador />
-    </div>
+  <div>
+    <contador />
+    <contador />
+  </div>
 </template>
 
 <script>
-import Contador from "./components/Contador.vue";
+import Contador from "../components/Contador.vue";
 export default {
-components: {
+  components: {
     Contador,
-},
+  },
 };
 </script>
 
