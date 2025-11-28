@@ -56,7 +56,7 @@ export default {
       default: 99,
       validator(value) {
         return value > 10;
-      }
+      },
     },
     mostrar: Boolean,
   },
