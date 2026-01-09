@@ -16,11 +16,11 @@ const obtenerVectorNumerico = () => {
   }
   return vector;
 };
-const obtenerVectorPokemon = (vectorNumerico) => {
-  const data1 = consumirApi(vectorNumerico[0]);
-  const data2 = consumirApi(vectorNumerico[1]);
-  const data3 = consumirApi(vectorNumerico[2]);
-  const data4 = consumirApi(vectorNumerico[3]);
+const obtenerVectorPokemon = async (vectorNumerico) => {
+  const data1 = await consumirApi(vectorNumerico[0]);
+  const data2 = await consumirApi(vectorNumerico[1]);
+  const data3 = await consumirApi(vectorNumerico[2]);
+  const data4 = await consumirApi(vectorNumerico[3]);
   const obj1 = {
     nombre: data1.name,
     id: data1.id,
@@ -39,3 +39,11 @@ const obtenerVectorPokemon = (vectorNumerico) => {
   };
   return [obj1, obj2, obj3, obj4];
 };
+export async function obtenerVectorNumericoFacade() {
+  const vectorNumerico = obtenerVectorNumerico();
+  const vectorPokemon = await obtenerVectorPokemon(vectorNumerico);
+  return vectorPokemon;
+}
+export function obtenerAleatorioFacade(min, max) {
+  return obtenerAleatorio(min, max);
+}

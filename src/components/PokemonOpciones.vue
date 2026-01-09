@@ -1,17 +1,31 @@
 <template>
     <div class="opciones-container">
         <ul>
-            <li>Pokemon 1</li>
-            <li>Pokemon 2</li>
-            <li>Pokemon 3</li>
-            <li>Pokemon 4</li>
+            <li @click="$emit('seleccionado', pokemon.id)" v-for="pokemon in listaPokemon" :key="pokemon.id" :class="{
+                correcta: idSeleccionado && pokemon.id === idCorrecto,
+                incorrecta: idSeleccionado && pokemon.id === idSeleccionado && pokemon.id !== idCorrecto
+            }">
+                {{ pokemon.nombre }}
+            </li>
         </ul>
     </div>
 </template>
 
 <script>
 export default {
-    
+    props: {
+        listaPokemon: {
+            type: Array,
+            required: true
+        },
+        idCorrecto: {
+            type: Number
+        },
+        idSeleccionado: {
+            type: Number,
+            default: null
+        }
+    }
 }
 </script>
 
@@ -30,5 +44,15 @@ li {
     margin-top: 15px;
     text-align: center;
     padding: 10px;
+}
+
+.correcta {
+    background-color: #a5d6a7;
+    border: 1px solid #2e7d32;
+}
+
+.incorrecta {
+    background-color: #ef9a9a;
+    border: 1px solid #c62828;
 }
 </style>
